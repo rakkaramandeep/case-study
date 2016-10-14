@@ -1,0 +1,33 @@
+<div class="col-xs-12">
+    <h1>Employee List</h1>
+    <div class="form-group col-xs-12">
+        <div class="col-xs-3 pull-right">
+            <input type="text" class="form-control" placeholder="filterText" ng-model="vm.filterText" ng-keyup="vm.filterEmployeeList()" />
+        </div>
+
+    </div>
+    <table class="table table-striped">
+        <thead>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>BirtDate</th>
+        <th>Age</th>
+        <th>&nbsp;</th>
+        </thead>
+        <tbody>
+        <tr ng-repeat="employee in vm.employeeList | orderBy:['lastName','age']:false">
+           <td>{{employee.employeeId}}</td>
+            <td>{{employee.lastName}}&nbsp;{{employee.middleName}}&nbsp;{{employee.firstName}}</td>
+            <td>{{employee.dateofbirth | date}}</td>
+            <td>{{employee.age}}</td>
+            <td><button type="button" ng-click="vm.updateEmployee(employee)" class="btn btn-info">
+                <span class="glyphicon glyphicon-edit"></span> </button>
+                <button ng-click="vm.deleteRow(employee, $index)" class="btn btn-default delete" ><span class="glyphicon glyphicon-remove" ></span></button>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+    <button type="button" ng-click="vm.addEmployee()" class="btn btn-primary">Add Employee</button>
+</div>

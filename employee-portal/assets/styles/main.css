@@ -1,0 +1,29 @@
+.navbar{
+    border-radius: 0;
+}
+.form-group input + span{
+    color: red;
+}
+.form-group .has-error{
+    border:1px solid red!important;
+}
+
+td{
+    text-transform:capitalize;
+}
+p.navbar-brand {
+    margin-bottom: 0;
+}
+
+.delete.btn{
+    color: red;
+}
+
+.footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding:15px 0;
+    background: #080808;
+    color: #a0a0a0;
+}

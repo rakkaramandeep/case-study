@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Portal</title>
+    <link rel="stylesheet" href="assets/styles/bootstrap.css" />
+    <link rel="stylesheet" href="assets/styles/main.css" />
+    <script type="text/javascript" src="assets/lib/angular.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="assets/lib/angular-ui-bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+<div class="row" ng-controller="HeaderController as vm">
+<nav class="navbar navbar-inverse" >
+    <div class="navbar-header">
+        <p class="navbar-brand" >Employee Portal</p>
+    </div>
+    <ul class="nav navbar-nav">
+        <li ng-class="{active: vm.url == '/home'}" ><a ui-sref="home">Home</a></li>
+        <li ng-class="{active: vm.url == '/employeeList'}"><a ui-sref="employeeList">Employee List</a></li>
+
+    </ul>
+</nav></div>
+
+<div class="container">
+<ui-view></ui-view>
+</div>
+<div class="row footer">
+    <div class="col-xs-12">
+<footer>
+    <p>
+        &copy; copyrights reserved Employeeportal.com.
+    </p>
+</footer>
+    </div>
+</div>
+</div>
+<script type="text/javascript" src="app/app.js"></script>
+<script type="text/javascript" src="app/app.route.js"></script>
+<script type="text/javascript" src="app/scripts/controllers/HeaderController.js"></script>
+<script type="text/javascript" src="app/shared/EmployeeListFactory.js"></script>
+<script type="text/javascript" src="app/scripts/controllers/LoginController.js"></script>
+<script type="text/javascript" src="app/scripts/controllers/EmployeeListController.js"></script>
+<script type="text/javascript" src="app/scripts/controllers/EmployeeDetailsController.js"></script>
+</body>
+</html>

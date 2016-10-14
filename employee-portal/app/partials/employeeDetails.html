@@ -1,0 +1,45 @@
+<div class="col-xs-12">
+    <h3>{{vm.mode}}</h3>
+<form name="employeedetails" ng-submit="vm.updateEmployee(employeedetails)" novalidate>
+    <div class="form-group">
+        <label for="employeeId">Employee Id</label>
+        <input name="userId" type="number" ng-maxlength="5" ng-minlength="5"
+               ng-class="{'has-error':employeedetails.$submitted && employeedetails.userId.$invalid}"
+               ng-model="vm.employee.employeeId" class="form-control" id="employeeId" placeholder="XXXXX" required/>
+        <span ng-show=" employeedetails.$submitted && employeedetails.userId.$invalid">5 digit UserId Required </span>
+    </div>
+    <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input name="firstname" type="text" ng-model="vm.employee.firstName" class="form-control"
+               ng-pattern="/^[a-zA-Z0-9]*$/"
+               ng-class="{'has-error':employeedetails.$submitted && employeedetails.firstname.$invalid}"
+               id="firstname" placeholder="firstName" required>
+        <span ng-show=" employeedetails.$submitted && employeedetails.firstname.$invalid">Valid FisrtName Required</span>
+    </div>
+    <div class="form-group">
+        <label for="middlename">Middle Name</label>
+        <input name="middlename" type="text" ng-model="vm.employee.middleName" class="form-control" id="middlename"
+               placeholder="middlename">
+    </div>
+    <div class="form-group">
+        <label for="lastName">Last Name</label>
+        <input name="lastName" type="text" ng-pattern="/^[a-zA-Z0-9]*$/" ng-model="vm.employee.lastName"
+               ng-class="{'has-error':employeedetails.$submitted && employeedetails.lastName.$invalid}"
+               class="form-control" id="lastName" placeholder="lastName" required>
+        <span ng-show=" employeedetails.$submitted && employeedetails.lastName.$invalid">Last Required</span>
+    </div>
+    <div class="form-group">
+        <label for="dateofbirth">Date of birth</label>
+        <input name="dateofbirth" type="text" ng-model="vm.employee.dateofbirth"
+               uib-datepicker-popup="{{vm.format}}"  is-open="open"
+               ng-class="{'has-error':employeedetails.$submitted && employeedetails.dateofbirth.$invalid}"
+               ng-required="true" close-text="Close" alt-input-formats="vm.altInputFormats"  ng-focus="open = true"
+               class="form-control" id="dateofbirth" placeholder="dateofbirth" required>
+        <span ng-show=" employeedetails.$submitted && employeedetails.dateofbirth.$error.required">Last Required</span>
+    </div>
+    <button type="submit" class="btn btn-success">
+        {{vm.mode}}
+    </button>
+    <button type="button" ng-click="vm.cancel()" class="btn btn-default">Cancel</button>
+</form>
+</div>
